@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de notas</title>
+  <link rel="stylesheet" href="estilos.css">
+  <!-- Primero notas.js (las funciones) y después app.js (la página que las usa) -->
+  <script src="notas.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="contenedor">
+    <header>
+      <h1>Registro de notas</h1>
+      <p class="subtitulo">Práctica 2 · Arrays · DWEC 2º DAW</p>
+    </header>
+
+    <!-- Resumen de la clase -->
+    <section id="resumen" class="resumen" aria-live="polite"></section>
+
+    <!-- Controles: filtro y orden -->
+    <section class="controles">
+      <label>
+        Mostrar
+        <select id="filtro">
+          <option value="todos">Todos</option>
+          <option value="aprobados">Aprobados</option>
+          <option value="suspensos">Suspensos</option>
+        </select>
+      </label>
+      <label>
+        Ordenar por
+        <select id="orden">
+          <option value="nombre">Nombre</option>
+          <option value="nota-desc">Nota más alta primero</option>
+          <option value="nota-asc">Nota más baja primero</option>
+        </select>
+      </label>
+    </section>
+
+    <!-- Tabla de alumnos -->
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Nota</th>
+          <th class="col-borrar">Borrar</th>
+        </tr>
+      </thead>
+      <tbody id="cuerpo-tabla"></tbody>
+    </table>
+
+    <!-- Formulario para añadir -->
+    <form id="form-alumno" class="formulario" novalidate>
+      <h2>Añadir alumno</h2>
+      <div class="campos">
+        <input type="text" id="nombre" placeholder="Nombre" autocomplete="off">
+        <input type="text" id="nota" placeholder="Nota (0-10)" inputmode="decimal" autocomplete="off">
+        <button type="submit">Añadir</button>
+      </div>
+      <p id="mensaje" class="mensaje" aria-live="polite"></p>
+    </form>
+  </main>
+</body>
+</html>
